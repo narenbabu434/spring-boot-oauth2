@@ -42,7 +42,7 @@ public class AuthroizationServerConfig extends AuthorizationServerConfigurerAdap
 	private String secret;
 
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory().withClient("client").secret("secret")
+		clients.inMemory().withClient(client).secret(secret)
 				.accessTokenValiditySeconds(Integer.valueOf(accessTokenValidity))
 				.authorizedGrantTypes("autherization_code", "refresh_token", "password").scopes("read", "write")
 				.refreshTokenValiditySeconds(Integer.valueOf(refreshTokenValidity));
